@@ -18,7 +18,7 @@ function outlinerStart($id, $title, $opened = false, $noPopup = false) {
     ($noPopup ? '' : 'outliner_clearPopup(\''.$id.'\');').
     'outliner_toggleLine(\''.$id.'\',outliner_switch(\''.$id.'\'));return false;"'.
     '>'.
-    $title.
+    hsc($title).
     '</div>'.
     '<div id="outliner_div_'.$id.'" class="outline-block invisible unmarked'.($opened ? ' default-open' : '').'">'.
     '<table border="0" cellspacing="0" cellpadding="4"><tr>'.
