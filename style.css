@@ -1,94 +1,59 @@
 /* Whole outline block including left marker */
-div.outline-block {
-   border-left: 0px;
-   padding-left: 0em;
-   padding-bottom: 0.3em;
+dl.outliner {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+dl.outliner dt {
+  margin: 0.5em 0;
+  padding: 0.5em 1em;
+  font-weight: bold;
+  background-color: __background_alt__;
+  border: 1px solid __border__;
+}
+
+dl.outliner-js dt {
+  cursor: pointer;
+}
+
+dl.outliner-js.outliner-closed > dt {
+  padding-left: 20px;
+  background: __background_alt__ url(closed.gif) 5px center no-repeat;
+}
+
+dl.outliner-js.outliner-open > dt {
+  padding-left: 20px;
+  background: __background_alt__ url(open.gif) 5px center no-repeat;
 }
 
 /* Outline block content */
-td.outline-content {
-   border-left: 4px;
-   padding-left: 5px;
-   margin-left: 0px;
-   margin-bottom: 0px;
-   padding-top: 8px;
-   padding-bottom: 0.0em;
+dl.outliner dd {
+  padding: 0 0 0 2em;
+  margin: 0;
+  border-left: 1px solid transparent;
 }
 
-div.marked {
+dl.outliner:hover dd {
+  border-left: 1px dotted __border__;
 }
-div.unmarked {
-}
-div.visible {
-   display: block;
-}
-div.invisible {
+
+dl.outliner-closed > dd {
    display: none;
-   height: 0px;
 }
 
-/* Left marker area */
-td.outline-bar {
-   width: 3px;
-   margin-left: 2px;
-   font-size:90%;
+dl.outliner-closed:hover > dd {
+  display: block;
+  position: absolute;
+  border: 1px solid __border__;
+  background-color: __background_alt__;
+  padding: 10px;
 }
 
-/* Left marker - shown (shown on mouse hover) */
-td.marked {
-   border-left: 1px dotted #106070;
-   border-bottom: 1px dotted #506080;
-#  border-left: 1px solid #106070; /* IE: dotted looks ugly, make it solid */
-#  border-bottom: 1px solid #506080; /* IE: dotted looks ugly, make it solid */
-   padding-left: 0px;
-}
-/* Left marker - hidden (shown on mouse hover) */
-td.unmarked {
-   border-left: 0px;
-   border-bottom: 0px;
-   padding-left: 1px;
+dl.outliner-closed:hover > dd dd {
+  position: static;
 }
 
-/* Wedge & title area */
-div.wedge {
-   font-weight: bold;
-   padding-left: 20px;
-   margin-left: 0px;
-   cursor: pointer;
-   vertical-align: middle;
-}
-
-/* Wedge area nearby outline title - expanded wedge */
-div.wedgeOpen {
-   background: url(open.gif) no-repeat 0.1em;
-}
-
-/* Wedge area nearby outline title - collapsed wedge */
-div.wedgeClosed {
-   background: url(closed.gif) no-repeat 0.1em;
-}
-
-/* Floating tip */
-div.floating {
-   font-family: 'Zurich Cn BT', 'Trebuchet MS', Verdana, Arial, Helvetica, sans-serif;
-   font-size: 0.85em !important;
-   border: 1px dotted;
-#  border: 1px solid;  /* IE */
-   border-color: #806060;
-   padding: 0.5em;
-   background-color: #402020;
-   color: white  !important;
-   width: 60%;
-
-#  filter: alpha(opacity=90); /* IE */
-   -moz-opacity: .90;
-   opacity:.90;
-}
-
-/* Floating tip content */
-div.floating td.outline-content {
-   font-family: 'Zurich Cn BT', 'Trebuchet MS', Verdana, Arial, Helvetica, sans-serif;
-   font-size: 0.85em !important;
-   padding-bottom: 0px;
-   margin-bottom: 0px;
+dl.outliner-closed.outliner-nopopup:hover > dd {
+  display: none;
 }
