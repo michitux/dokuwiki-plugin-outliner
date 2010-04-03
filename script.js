@@ -23,11 +23,11 @@ addInitEvent(function () {
     if (nodeId.length) {
       DokuCookie.setValue(nodeId, state);
     }
-  }
+  };
 
   var getOutlinerId = function(node) {
     return node.className.match(/outliner_\w+/)[0];
-  }
+  };
 
   for (var i = 0; i < outliner_dls.length; i++) {
     outliner_dls[i].className += ' outliner-js';
