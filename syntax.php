@@ -55,7 +55,7 @@ class syntax_plugin_outliner extends DokuWiki_Syntax_Plugin {
      * Where to sort in?
      */
     function getSort(){
-        return 100;
+        return 10;
     }
 
     /**
