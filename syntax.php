@@ -15,21 +15,6 @@ require_once(DOKU_PLUGIN.'syntax.php');
  * need to inherit from this class
  */
 class syntax_plugin_outliner extends DokuWiki_Syntax_Plugin {
-
-    /**
-     * return some info
-     */
-    function getInfo(){
-        return array(
-            'author' => 'Michael Hamann',
-            'email'  => 'michael@content-space.de',
-            'date'   => '2010-03-10',
-            'name'   => 'Outliner Plugin',
-            'desc'   => 'Allows collapsible outline layout',
-            'url'    => 'http://dokuwiki.org/plugin:outliner',
-        );
-    }
-
     /**
      * What kind of syntax are we?
      */
