@@ -7,7 +7,7 @@ dl.outliner {
 
 dl.outliner dt {
   margin: 0.5em 0;
-  padding: 0.5em 1em;
+  padding: 0.3em 1em;
   font-weight: bold;
   background-color: __background_alt__;
   border: 1px solid __border__;
@@ -29,12 +29,12 @@ dl.outliner-js.outliner-open > dt {
 
 /* Outline block content */
 dl.outliner dd {
-  padding: 0 0 0 2em;
+  padding: 0 0 0 1.5em;
   margin: 0;
   border-left: 1px solid transparent;
 }
 
-dl.outliner:hover dd {
+dl.outliner:hover > dd {
   border-left: 1px dotted __border__;
 }
 

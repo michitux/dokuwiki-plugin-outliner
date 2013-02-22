@@ -70,7 +70,7 @@ class syntax_plugin_outliner extends DokuWiki_Syntax_Plugin {
             $matches = array();
             preg_match('/-->\s*([^#^]*)([#^]*)/', $match, $matches);
             $title = $matches[1];
-            $outline_id = ''.md5($ID).'_'.mt_rand(100000,999999);
+            $outline_id = ''.md5($ID).'_'.$pos;
 
             // Test if '^ - opened node' flag is present
             $opened = (strpos($matches[2], '^') !== false);
@@ -98,7 +98,10 @@ class syntax_plugin_outliner extends DokuWiki_Syntax_Plugin {
           switch ($state) {
           case DOKU_LEXER_ENTER:
               list($state, $title, $outline_id, $opened, $nopopup) = $data;
-              $renderer->doc .= '<dl class="outliner outliner_'.$outline_id;
+              $renderer->doc .= '<dl class="outliner';
+              // only set node id when cookies are used
+              if ($this->getConf('usecookie'))
+                 $renderer->doc .= ' outl_'.$outline_id;
               if ($opened) $renderer->doc .= ' outliner-open';
               if ($nopopup) $renderer->doc .= ' outliner-nopopup';
               $renderer->doc .= '"><dt>'.hsc($title)."</dt><dd>\n";
@@ -107,7 +110,7 @@ class syntax_plugin_outliner extends DokuWiki_Syntax_Plugin {
               $renderer->doc .= "</dd></dl>\n";
               break;
           case DOKU_LEXER_UNMATCHED:
-              $renderer->doc .= $renderer->_xmlEntities($data[1]);
+              $renderer->cdata($data[1]);
               break;
           }
           return true;
