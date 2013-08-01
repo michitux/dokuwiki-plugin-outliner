@@ -1,7 +1,7 @@
 /* Whole outline block including left marker */
 div.outline-block {
-   border-left: 0px;
-   padding-left: 0em;
+   border-left: 0;
+   padding-left: 0;
    padding-bottom: 0.3em;
 }
 
@@ -9,8 +9,8 @@ div.outline-block {
 td.outline-content {
    border-left: 4px;
    padding-left: 5px;
-   margin-left: 0px;
-   margin-bottom: 0px;
+   margin-left: 0;
+   margin-bottom: 0;
    padding-top: 8px;
    padding-bottom: 0.0em;
 }
@@ -24,7 +24,7 @@ div.visible {
 }
 div.invisible {
    display: none;
-   height: 0px;
+   height: 0;
 }
 
 /* Left marker area */
@@ -38,24 +38,20 @@ td.outline-bar {
 td.marked {
    border-left: 1px dotted #106070;
    border-bottom: 1px dotted #506080;
-#  border-left: 1px solid #106070; /* IE: dotted looks ugly, make it solid */
-#  border-bottom: 1px solid #506080; /* IE: dotted looks ugly, make it solid */
-   padding-left: 0px;
+   padding-left: 0;
 }
 /* Left marker - hidden (shown on mouse hover) */
 td.unmarked {
    border-left: 1px dotted #106070;
    border-bottom: 1px dotted #506080;
-#  border-left: 1px solid #106070; /* IE: dotted looks ugly, make it solid */
-#  border-bottom: 1px solid #506080; /* IE: dotted looks ugly, make it solid */
-   padding-left: 0px;
+   padding-left: 0;
 }
 
 /* Wedge & title area */
 div.wedge {
    font-weight: bold;
    padding-left: 20px;
-   margin-left: 0px;
+   margin-left: 0;
    cursor: pointer;
    vertical-align: middle;
    content: "&gt; ";
