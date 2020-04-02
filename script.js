@@ -13,7 +13,7 @@ jQuery(function () {
         jQuery(node).removeClass('outliner-' + otherState).addClass('outliner-' + state);
         var nodeId = getOutlinerId(node);
         if (nodeId) {
-            jQuery.cookie(nodeId, state, {expires: 7, path: DOKU_BASE});
+			localStorage.setItem(nodeId,state);
         }
     };
 
@@ -44,32 +44,11 @@ jQuery(function () {
         .each(function() {
             var id = getOutlinerId(this);
             if (id) {
-               setState(this, jQuery.cookie(getOutlinerId(this)));
+               setState(this, localStorage.getItem(id));
             }
         })
         .filter(':not(.outliner-open,.outliner-closed)').each(function() {
             setState(this, 'closed');
         });
 
-    // delete old cookie data
-    DokuCookie.init();
-    var value_deleted = false;
-    jQuery.each(DokuCookie.data, function(key) {
-        if (key.match(/outl(iner)?_\w+_\d+/)) {
-            delete DokuCookie.data[key];
-            value_deleted = true;
-        }
-    });
-    if (value_deleted) {
-        if (jQuery.isEmptyObject(DokuCookie.data)) {
-            jQuery.removeCookie(DokuCookie.name, {path: DOKU_BASE});
-        } else { // save the data by setting a value that is already set
-            var key = '', value = '';
-            jQuery.each(DokuCookie.data, function(k, v) {
-                key = k; value = v;
-                return false;
-            });
-            DokuCookie.setValue(key, value);
-        }
-    }
 });
