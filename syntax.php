@@ -100,7 +100,7 @@ class syntax_plugin_outliner extends DokuWiki_Syntax_Plugin {
               list($state, $title, $outline_id, $opened, $nopopup) = $data;
               $renderer->doc .= '<dl class="outliner';
               // only set node id when cookies are used
-              if ($this->getConf('usecookie'))
+              if ($this->getConf('useLocalStorage'))
                  $renderer->doc .= ' outl_'.$outline_id;
               if ($opened) $renderer->doc .= ' outliner-open';
               if ($nopopup) $renderer->doc .= ' outliner-nopopup';

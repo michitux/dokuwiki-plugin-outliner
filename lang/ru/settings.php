@@ -5,4 +5,4 @@
  * 
  * @author Aleksandr Selivanov <alexgearbox@yandex.ru>
  */
-$lang['usecookie']             = 'Сохранять текущее состояние открыто-закрыто в куках (cookies)';
+$lang['useLocalStorage']             = 'Сохранять текущее состояние открыто-закрыто в куках (localStorage)';

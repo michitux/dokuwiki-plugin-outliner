@@ -4,4 +4,4 @@
  * Default options of the outliner plugin
  */
 
-$conf['usecookie'] = 0;
+$conf['useLocalStorage'] = 0;

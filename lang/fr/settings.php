@@ -5,4 +5,4 @@
  * 
  * @author Nicolas Friedli <nicolas@theologique.ch>
  */
-$lang['usecookie']             = 'Conserver l\'état courant (ouvert/fermé) dans un cookie';
+$lang['useLocalStorage']             = 'Conserver l\'état courant (ouvert/fermé) dans le Stockage local du navigateur';

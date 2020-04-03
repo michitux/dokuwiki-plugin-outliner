@@ -4,4 +4,4 @@
  * Configuration metadata of the outliner plugin
  */
 
-$meta['usecookie'] = array('onoff');
+$meta['useLocalStorage'] = array('onoff');

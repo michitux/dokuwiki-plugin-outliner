@@ -5,4 +5,4 @@
  *
  * @author Arne Hanssen <arne.hanssen@getmail.no>
  */
-$lang['usecookie']             = 'Lagre nåværende åpnet/lukket tilstand i en informasjonskapsel.';
+$lang['useLocalStorage']             = 'Lagre nåværende åpnet/lukket tilstand i en informasjonskapsel.';

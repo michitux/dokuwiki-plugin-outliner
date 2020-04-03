@@ -5,4 +5,4 @@
  * 
  * @author Satoshi Sahara <sahara.satoshi@gmail.com>
  */
-$lang['usecookie']             = '開閉状態をクッキーに保存する';
+$lang['useLocalStorage']             = '開閉状態をクッキーに保存する';

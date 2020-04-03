@@ -5,4 +5,4 @@
  * 
  * @author ilker rifat kapaç <irifat@gmail.com>
  */
-$lang['usecookie']             = 'Mevcut açık/kapalı durumunu bir çerezde sakla';
+$lang['useLocalStorage']             = 'Mevcut açık/kapalı durumunu bir çerezde sakla';

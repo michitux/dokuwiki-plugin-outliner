@@ -5,4 +5,4 @@
  * 
  * @author Michael Hamann <michael@content-space.de>
  */
-$lang['usecookie']             = 'Den aktuellen geöffnet/geschlossen-Zustand in einem Cookie speichern';
+$lang['useLocalStorage']             = 'Den aktuellen geöffnet/geschlossen-Zustand in einem LocalStorage speichern';
