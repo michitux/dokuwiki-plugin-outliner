@@ -68,7 +68,7 @@ class syntax_plugin_outliner extends DokuWiki_Syntax_Plugin {
         switch ($state) {
         case DOKU_LEXER_ENTER:
             $matches = array();
-            preg_match('/-->\s*([^#^]*)([#^]*)/', $match, $matches);
+            preg_match('/-->\s*([^#^@]*)([#^@]*)/', $match, $matches);
             $title = $matches[1];
             $outline_id = ''.md5($ID).'_'.$pos;
 
@@ -76,7 +76,9 @@ class syntax_plugin_outliner extends DokuWiki_Syntax_Plugin {
             $opened = (strpos($matches[2], '^') !== false);
             // Test if '# - no popup' flag is present
             $nopopup = (strpos($matches[2], '#') !== false);
-            return array($state, $title, $outline_id, $opened, $nopopup);
+			// Test if '$ - link flag is present
+            $link = (strpos($matches[2], '@') !== false);
+            return array($state, $title, $outline_id, $opened, $nopopup,$link);
 
         case DOKU_LEXER_EXIT:
             return array($state);
@@ -97,14 +99,22 @@ class syntax_plugin_outliner extends DokuWiki_Syntax_Plugin {
           $state = $data[0];
           switch ($state) {
           case DOKU_LEXER_ENTER:
-              list($state, $title, $outline_id, $opened, $nopopup) = $data;
+              list($state, $title, $outline_id, $opened, $nopopup,$link) = $data;
               $renderer->doc .= '<dl class="outliner';
               // only set node id when cookies are used
               if ($this->getConf('useLocalStorage'))
                  $renderer->doc .= ' outl_'.$outline_id;
               if ($opened) $renderer->doc .= ' outliner-open';
               if ($nopopup) $renderer->doc .= ' outliner-nopopup';
-              $renderer->doc .= '"><dt>'.hsc($title)."</dt><dd>\n";
+			  if ($link) {
+				  $charToReplace=array("[","]");
+				  $linkId=str_replace($charToReplace ,"",$title);
+				  $linkId=explode('|',$linkId);
+				 
+				  $renderer->doc .= '"><dt>'.html_wikilink($linkId[0],$linkId[1])."</dt><dd>\n";
+			  } else{
+				  $renderer->doc .= '"><dt>'.hsc($title)."</dt><dd>\n";
+			  }
               break;
           case DOKU_LEXER_EXIT:
               $renderer->doc .= "</dd></dl>\n";
